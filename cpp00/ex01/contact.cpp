@@ -2,50 +2,50 @@
 
 void Contact::set_first_name(std::string newStr)
 {	
-	first_name = newStr;		
+	Contact::first_name = newStr;		
 }
 
 void Contact::set_last_name(std::string newStr)
 {	
-	last_name = newStr;
+	Contact::last_name = newStr;
 }
 
 void Contact::set_nickname(std::string newStr)		
 {	
-	nickname = newStr;			
+	Contact::nickname = newStr;			
 }
 
 void Contact::set_phone_number(std::string newStr)	
 {	
-	phone_number = newStr;		
+	Contact::phone_number = newStr;		
 }
 
 void Contact::set_darkest_secret(std::string newStr)	
 {	
-	darkest_secret = newStr;	
+	Contact::darkest_secret = newStr;	
 }
 
 std::string Contact::get_first_name() 				
 { 	
-	return first_name; 		
+	return Contact::first_name; 		
 }
 
 std::string Contact::get_last_name()					
 {	
-	return last_name;		
+	return Contact::last_name;		
 }
 
 std::string Contact::get_nickname()					
 {	
-	return nickname;		
+	return Contact::nickname;		
 }
 
 std::string Contact::get_phone_number()				
 {	
-	return phone_number;	
+	return Contact::phone_number;	
 }
 
 std::string Contact::get_darkest_secret()			
 {	
-	return darkest_secret;	
+	return Contact::darkest_secret;	
 }
