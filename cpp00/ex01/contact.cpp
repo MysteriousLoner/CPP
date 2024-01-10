@@ -5,6 +5,14 @@ void Contact::set_first_name(std::string newStr)
 	Contact::first_name = newStr;		
 }
 
+Contact::Contact()
+{
+}
+
+Contact::~Contact()
+{
+}
+
 void Contact::set_last_name(std::string newStr)
 {	
 	Contact::last_name = newStr;
