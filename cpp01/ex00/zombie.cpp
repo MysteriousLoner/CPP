@@ -3,6 +3,7 @@
 Zombie::Zombie(std::string name)
 {
     Zombie::name = name;
+    std::cout << "constructor for " << Zombie::name << std::endl;
 }
 
 Zombie::~Zombie()
