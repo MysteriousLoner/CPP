@@ -23,7 +23,7 @@ void Contact::set_nickname(std::string newStr)
 	Contact::nickname = newStr;			
 }
 
-void Contact::set_phone_number(std::string newStr)	
+void Contact::set_phone_number(std::string newStr)
 {	
 	Contact::phone_number = newStr;		
 }
