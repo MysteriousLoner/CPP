@@ -12,6 +12,7 @@ int main()
     getline(cin, input);
     cout << "Now lets try creating an zombie and store it on stack memory." << endl;
     cout << "( Press enter to continue )" << endl;
+    cout << "randomChump('qiqi);" << endl;
     getline(cin, input);
     randomChump("qiqi");
     cout << "( Press enter to continue )" << endl;
