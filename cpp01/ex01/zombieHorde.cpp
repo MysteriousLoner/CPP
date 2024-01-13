@@ -10,7 +10,7 @@ Zombie* zombieHorde(int N, string name)
         num << i;
         string sNum = num.str();
         temp.append(sNum);
-        horde[i] = Zombie(temp);
+        horde[i].setName(temp);
     }
 
     return horde;

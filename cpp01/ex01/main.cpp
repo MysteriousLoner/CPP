@@ -10,6 +10,7 @@ int main()
     ss >> i;
     Zombie* horde = zombieHorde(i, "qiqi");
     cout << "Now lets try accesing them. " << endl << "(press enter to continue)" << endl;
+    getline(cin, input);
     for (int x = 0; x < i; x++)
         horde[x].announce();
     delete [] horde;
