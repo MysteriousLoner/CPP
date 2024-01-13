@@ -1,10 +1,13 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
 class Zombie{
 public:
+    Zombie();
     Zombie(string name);
     ~Zombie();
     void announce();

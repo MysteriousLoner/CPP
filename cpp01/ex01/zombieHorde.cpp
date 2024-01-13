@@ -2,9 +2,16 @@
 
 Zombie* zombieHorde(int N, string name)
 {
-    Zombie horde[N];
+    Zombie* horde = new Zombie[N];
     for (int i = 0; i < N; i++)
-        horde[i] = Zombie(name);
+    {
+        stringstream num;
+        string temp = name;
+        num << i;
+        string sNum = num.str();
+        temp.append(sNum);
+        horde[i] = Zombie(temp);
+    }
 
     return horde;
 }
