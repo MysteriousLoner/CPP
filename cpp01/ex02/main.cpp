@@ -37,6 +37,7 @@ int main()
     getline(cin, input);
     cout << stringPTR << endl;
     cout << "(press enter to continue)" << endl;
+<<<<<<< HEAD
     cout << "size of pointer " << sizeof(stringPTR) << endl;
     stringPTR++;
     getline(cin, input);
@@ -46,6 +47,8 @@ int main()
     getline(cin, input);
     cout << stringPTR << endl;
     cout << "(press enter to continue)" << endl;
+=======
+>>>>>>> 07185d0d8664b36b972ae81c1450a93a372c87a1
     getline(cin, input);
     cout << "2." << endl << "cout << &srtingREF;" << endl;
     cout << "(press enter to continue)" << endl;
@@ -81,5 +84,9 @@ int main()
     getline(cin, input);
     stringREF = cock;
     cout << "cout << brain;" << endl;
+<<<<<<< HEAD
     cout << stringREF << endl;
+=======
+    cout << stringREF << endl; 
+>>>>>>> 07185d0d8664b36b972ae81c1450a93a372c87a1
 }
