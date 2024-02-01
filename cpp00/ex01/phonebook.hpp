@@ -3,6 +3,7 @@
 class Phonebook{
 public:
 	Phonebook();
+	~Phonebook();
 	void add_contacts();
 	void search_and_print_contact();
 	void print_contacts();

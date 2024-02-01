@@ -5,6 +5,10 @@ Phonebook::Phonebook()
 	Phonebook::index = 0;
 }
 
+Phonebook::~Phonebook()
+{
+}
+
 void Phonebook::add_contacts()
 {
 	std::string input;
