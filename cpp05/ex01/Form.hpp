@@ -3,7 +3,8 @@
 
 #include <string>
 
-using namespace std;
+using namespace std::cout;
+using namespace std::endl;
 
 class GradeTooHighException: public exception
 {
