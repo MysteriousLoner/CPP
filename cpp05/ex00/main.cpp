@@ -3,6 +3,7 @@
 int main()
 {
 	string input;
+	const char *tempstr;
 	int grade;
 	while (1)
 	{
@@ -10,7 +11,8 @@ int main()
 		getline(cin, input);
 		try
 		{
-			grade = stoi(input);
+			tempstr = input.c_str();
+			grade = atoi(tempstr);
 		}
 		catch (exception &e)
 		{

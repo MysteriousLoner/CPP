@@ -24,9 +24,9 @@ Bureaucrat::Bureaucrat(const string& name, int grade) : name(name)
 {
 	cout << endl << endl << "Bureaucrat constructor called" << endl << endl << endl;
 	if (grade < 1)
-		throw Bureaucrat::Grade2Low;
-	else if (grade > 150)
 		throw Bureaucrat::Grade2High;
+	else if (grade > 150)
+		throw Bureaucrat::Grade2Low;
 	else
 		this->grade = grade;
 }
