@@ -1,23 +1,62 @@
-#include <Form.hpp>
+#include "Form.hpp"
 
-Form::Form() : isSigned(false), name("default"), gradeToSign(150), gradeToExecute(150)
+Form::Form() : name("default"), isSigned(false), gradeToSign(150)
 {
+
     cout << "default form constructor" << endl;
 }
 
-Form::Form(const string& name, int gradeToSign, int gradeToExecute)
+string Form::getName()
+{
+    return (this->name);
+}
+
+bool Form::getIsSigned()
+{
+    return (this->isSigned);
+}
+
+int Form::getGradeToSign()
+{
+    return (this->gradeToSign);
+}
+
+// int Form::getGradeToExecute()
+// {
+//     return (this->gradeToExecute);
+// }
+
+void Form::beSigned(Bureaucrat& bureaucrat)
+{
+
+    if (bureaucrat.getGrade() > this->getGradeToSign())
+        throw Form::Grade2High;
+    else
+        this->isSigned = true;
+}
+
+Form::Form(const string& name, int gradeToSign) : name(name), gradeToSign(gradeToSign)
 {
     cout << "form constructor called" << endl;
+
     if (gradeToSign < 1)
         throw Form::Grade2Low;
     else if (gradeToSign > 150)
         throw Form::Grade2High;
+}
+
+Form::~Form()
+{
+
+}
+
+ostream& operator << (ostream& out, Form& form)
+{
+    out << "name: " << form.getName();
+    if (form.getIsSigned() == 1)
+        out << "\nis signed?: yes";
     else
-        this->gradeToSign = gradeToSign;
-    if (gradeToExecute < 1)
-        throw Form::Grade2Low;
-    else if (gradeToExecute > 150)
-        throw Form::Grade2High;
-    else
-        this->gradeToExecute = gradeToExecute
+        out << "\nis signed?: no";
+    out << "\ngrade to sign: " << form.getGradeToSign() << endl;
+    return (out);
 }

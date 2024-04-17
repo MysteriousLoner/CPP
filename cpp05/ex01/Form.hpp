@@ -2,21 +2,16 @@
 #define FORM_HPP
 
 #include <string>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include "Bureaucrat.hpp"
+#include <exception>
+#include "GradeException.hpp"
 
-using namespace std::cout;
-using namespace std::endl;
+using namespace std;
 
-class GradeTooHighException: public exception
-{
-public:
-	const char *what() const throw();
-};
-
-class GradeTooLowException: public exception
-{
-public:
-	const char *what() const throw();
-};
+class Bureaucrat;
 
 class Form
 {
@@ -24,20 +19,19 @@ private:
 	const string name;
 	bool isSigned;
 	const int gradeToSign;
-	const int gradeToExecute;
+	// const int gradeToExecute;
 	GradeTooHighException Grade2High;
 	GradeTooLowException Grade2Low;
 public:
 	Form();
-	Form(const string& name, int gradeToSign, int gradeToExecute);
+	Form(const string& name, int gradeToSign);
 	~Form();
 	string getName();
 	bool getIsSigned();
 	int getGradeToSign();
-	int getGradeToExecute();
-	void beSigned();
-	void beExecuted();
+	void beSigned(Bureaucrat&  bureaucrat);
 };
 
 ostream& operator << (ostream& out, Form& form);
+
 #endif
