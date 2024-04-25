@@ -1,11 +1,10 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include "ex02tester.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	// ShrubberyCreationForm shrubForm("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	PresidentialPardonForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	// RobotomyRequestForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	// ShrubberyCreationForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
