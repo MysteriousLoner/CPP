@@ -7,17 +7,16 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150)
 
 Bureaucrat::~Bureaucrat()
 {
-	cout << endl << endl << "Bureaucrat destructor called" << endl << endl;
 }
 
 const char *GradeTooHighException::what() const throw()
 {
-	return "Grade too high";
+	return "Grade too high! (Bureaucrat)";
 }
 
 const char *GradeTooLowException::what() const throw()
 {
-	return "Grade too low";
+	return "Grade too low! (Bureaucrat)";
 }
 
 Bureaucrat::Bureaucrat(const string& name, int grade) : name(name)

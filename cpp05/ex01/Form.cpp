@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form() : name("default"), isSigned(false), gradeToSign(150)
+Form::Form() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
 {
 
     cout << "default form constructor" << endl;
@@ -21,10 +21,10 @@ int Form::getGradeToSign()
     return (this->gradeToSign);
 }
 
-// int Form::getGradeToExecute()
-// {
-//     return (this->gradeToExecute);
-// }
+int Form::getGradeToExecute()
+{
+    return (this->gradeToExecute);
+}
 
 void Form::beSigned(Bureaucrat& bureaucrat)
 {
@@ -35,7 +35,7 @@ void Form::beSigned(Bureaucrat& bureaucrat)
         this->isSigned = true;
 }
 
-Form::Form(const string& name, int gradeToSign) : name(name), gradeToSign(gradeToSign)
+Form::Form(const string& name, int gradeToSign, int gradeToExecute) : name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
     cout << "form constructor called" << endl;
 
@@ -58,5 +58,6 @@ ostream& operator << (ostream& out, Form& form)
     else
         out << "\nis signed?: no";
     out << "\ngrade to sign: " << form.getGradeToSign() << endl;
+    out << "\ngrade to execute: " << form.getGradeToExecute() << endl;
     return (out);
 }

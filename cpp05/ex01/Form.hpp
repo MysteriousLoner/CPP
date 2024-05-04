@@ -19,16 +19,17 @@ private:
 	const string name;
 	bool isSigned;
 	const int gradeToSign;
-	// const int gradeToExecute;
+	const int gradeToExecute;
 	GradeTooHighException Grade2High;
 	GradeTooLowException Grade2Low;
 public:
 	Form();
-	Form(const string& name, int gradeToSign);
+	Form(const string& name, int gradeToSign, int gradeToExecute);
 	~Form();
 	string getName();
 	bool getIsSigned();
 	int getGradeToSign();
+	int getGradeToExecute();
 	void beSigned(Bureaucrat&  bureaucrat);
 };
 

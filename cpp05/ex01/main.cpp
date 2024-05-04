@@ -65,14 +65,21 @@ int main()
 
 		break;
 	}
+	try
+	{
 	cout << "---------check bureaucrat-----------" << endl;
 	Bureaucrat bureaucrat(name, grade);
 	cout << bureaucrat;
 	cout << "---------check form-----------------" << endl;
-	Form form(form_name, form_grade);
+	Form form(form_name, form_grade, form_grade);
 	cout << form;
 	cout << "---------try sign--------------------" << endl;
 	bureaucrat.signForm(form);
 	cout << "----------after sign-----------------" << endl;
 	cout << form;
+	}
+	catch (exception &e)
+	{
+		cout << "\n-----------------------------\n" << "error! "<< e.what() << endl;
+	}
 }

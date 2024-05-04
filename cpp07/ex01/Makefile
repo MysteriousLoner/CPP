@@ -1,6 +1,6 @@
-NAME = ex00
+NAME = ex01
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
