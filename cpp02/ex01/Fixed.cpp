@@ -27,12 +27,12 @@ Fixed::Fixed(const float num)
 
 float Fixed::toFloat(void) const
 {
-    return ((float)Fixed::integer / (float)(1 << Fixed::fixed_int));
+    return (static_cast<float>(Fixed::integer) / (float)(1 << Fixed::fixed_int));
 }
 
 int Fixed::toInt(void) const
 {
-    return ((int)Fixed::integer / (int)(1 << Fixed::fixed_int));
+    return ((Fixed::integer << Fixed::fixed_int));
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
