@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(string name)
 
 ClapTrap::~ClapTrap()
 {
-
+    cout << "destructor for claptrap" << endl;
 }
 
 string ClapTrap::getName()

@@ -49,7 +49,9 @@
 int main()
 {
 	FragTrap ft("frag");
+	ScavTrap st("scav");
 
+	st.guardgate();
 	ft.attack("wall");
 	ft.takeDamage(10);
 	ft.beRepaired(10);

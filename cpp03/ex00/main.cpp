@@ -33,7 +33,8 @@ int main()
         if (input == "1")
         {
             player.attack(slob.getName());
-            slob.takeDamage(player.getAtk());
+            if (player.getEp() > 0)
+                slob.takeDamage(player.getAtk());
         }
         else if (input == "2")
         {

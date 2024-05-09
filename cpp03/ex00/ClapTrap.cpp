@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(string name)
 
 ClapTrap::~ClapTrap()
 {
-
+ 
 }
 
 string ClapTrap::getName()
@@ -41,7 +41,7 @@ int ClapTrap::getHp()
 
 void ClapTrap::attack(const string & target)
 {
-    if (ClapTrap::ep > 0)
+    if (ClapTrap::ep > 0 && ClapTrap::hp > 0)
     {
         cout << "ClapTrap " << ClapTrap::name << "attacks " << target << "causing " << atk << "points of damage!" << endl; 
         ClapTrap::ep --;
@@ -52,12 +52,15 @@ void ClapTrap::attack(const string & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    ClapTrap::hp -= amount;
+    if (ClapTrap::hp >= 0)
+        ClapTrap::hp -= amount;
+    else 
+        cout << "no health" << endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amont)
 {
-    if (ClapTrap::ep > 0)
+    if (ClapTrap::ep > 0 && ClapTrap::hp > 0)
     {
         cout << "ClapTrap " << ClapTrap::name << "healed for " << amont << endl;
         ClapTrap::hp += amont;
