@@ -90,7 +90,7 @@ void BitcoinExchange::printResult(const string &filename)
             continue;  
         }
         string amount = line.substr((date.size() + 3));
-        if (!isNumber(amount))
+        if (!isNumber(amount) || stod(amount) > 214783648 || stod(amount) < 0)
         {
             cout << "invalid amount!" << endl;
             continue;
