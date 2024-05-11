@@ -43,18 +43,18 @@ PmergeMe::~PmergeMe() {
 void PmergeMe::mergeVector()
 {
     vector<int>::iterator it = vctr.begin();
-    while(it != vctr.end())
-    {
-        cout << *it << " ";
-        it++;
-    }
+    // while(it != vctr.end())
+    // {
+    //     cout << *it << " ";
+    //     it++;
+    // }
     cout << endl;
     cout << "Sorting with vector" << endl;
     clock_t start_time = clock(); 
     while (!is_sorted(vctr))
     {
         // cout << "here" << endl;
-        int size = deq.size();
+        int size = vctr.size();
         if (size % 2 != 0)
         {
             extraNum = vctr.back();
@@ -94,14 +94,18 @@ void PmergeMe::mergeVector()
             it++;
         }
         cout << endl;
+        // std::sort(mid_it, vctrBuffer.end());
+        mid_it = vctrBuffer.begin();
+        std::advance(mid_it, vctrBuffer.size() / 2); 
         std::sort(mid_it, vctrBuffer.end());
         it = vctrBuffer.begin();
-        while(it != vctrBuffer.end())
-        {
-            cout << *it << " ";
-            it++;
-        }
-        cout << endl;
+        // while(it != vctrBuffer.end())
+        // {
+        //     cout << *it << " ";
+        //     it++;
+        // }
+        // cout << endl;
+        // break;
         // vctr = vctrBuffer;
         if (!is_sorted(vctrBuffer))
         {
@@ -123,6 +127,14 @@ void PmergeMe::mergeVector()
         }
         // vctrBuffer.clear();
     }
+    cout << "Sorted vector: "; 
+    it = vctrBuffer.begin();
+    while(it != vctrBuffer.end())
+    {
+        cout << *it << " ";
+        it++;
+    }
+    cout << endl;
     clock_t end_time = clock(); 
     double time_taken = double(end_time - start_time) / CLOCKS_PER_SEC;
       std::cout << "Time taken by function: " 
@@ -133,6 +145,14 @@ void PmergeMe::mergeVector()
 void PmergeMe::mergeDeque() 
 {
     cout << "Sorting with deque" << endl;
+    deque<int>::iterator it = deq.begin();
+    it = deq.begin();
+    while(it != deq.end())
+    {
+        cout << *it << " ";
+        it++;
+    }
+    cout << endl;
     clock_t start_time = clock(); 
     while (!is_sorted(deq))
     {
@@ -170,21 +190,21 @@ void PmergeMe::mergeDeque()
             deqBuffer.push_back(extraNum);
             size++;
         }
-        deque<int>::iterator it = deqBuffer.begin();
-        while(it != deqBuffer.end())
-        {
-            cout << *it << " ";
-            it++;
-        }
-        cout << endl;
+        // deque<int>::iterator it = deqBuffer.begin();
+        // while(it != deqBuffer.end())
+        // {
+        //     cout << *it << " ";
+        //     it++;
+        // }
+        // cout << endl;
         std::sort(mid_it, deqBuffer.end());
-        it = deqBuffer.begin();
-        while(it != deqBuffer.end())
-        {
-            cout << *it << " ";
-            it++;
-        }
-        cout << endl;
+        // it = deqBuffer.begin();
+        // while(it != deqBuffer.end())
+        // {
+        //     cout << *it << " ";
+        //     it++;
+        // }
+        // cout << endl;
         if (!is_sorted(deqBuffer))
         {
             while (!deqBuffer.empty())
@@ -203,8 +223,16 @@ void PmergeMe::mergeDeque()
                 flag *= -1;
             }
         }
-        deqBuffer.clear();
+        // deqBuffer.clear();
     }
+    cout << "Sorted deque: ";
+    it = deqBuffer.begin();
+    while(it != deqBuffer.end())
+    {
+        cout << *it << " ";
+        it++;
+    }
+    cout << endl;
     clock_t end_time = clock(); 
     double time_taken = double(end_time - start_time) / CLOCKS_PER_SEC;
       std::cout << "Time taken by function: " 

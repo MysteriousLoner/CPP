@@ -7,6 +7,7 @@
 #include <vector>
 #include <ctime>
 #include <iomanip>
+#include <algorithm>
 
 using std::vector;
 using std::string;
