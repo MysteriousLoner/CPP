@@ -19,13 +19,14 @@ void RPN::calculate()
     {
         if (params[i] == ' ')
             continue;
-        if (params[i] <= '0' && params[i] >= '9')
+        if ((params[i] < '0' || params[i] > '9') && params[i] != '+' && params[i] != '-' && params[i] != '*' && params[i] != '/')
         {
             cout << "Error: Invalid character" << endl;
             return;
         }
         if (params[i] == '+' || params[i] == '-' || params[i] == '*' || params[i] == '/')
         {
+            cout << "Operator " << params[i] << " found" << endl;
             if (s.size() < 2)
             {
                 cout << "Error: Not enough operands" << endl;
@@ -59,7 +60,7 @@ void RPN::calculate()
                 cout << "pushed " << (a) / (b) << endl;
             }
         }
-        else
+        else 
         {
             cout << "pushed " << params[i] << endl;
             s.push(params[i] - '0');

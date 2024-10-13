@@ -3,9 +3,9 @@
 ScavTrap::ScavTrap(void): ClapTrap()
 {
 	cout << "ScavTrap default constructor" << endl;
-	this->hp = 100;
-	this->ep = 50;
-	this->atk = 20;
+	hp = 100;
+	ep = 50;
+	atk = 20;
 }
 
 ScavTrap::ScavTrap(string name): ClapTrap(name)

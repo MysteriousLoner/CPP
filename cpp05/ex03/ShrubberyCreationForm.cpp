@@ -24,6 +24,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
         throw GradeTooLowException();
     else
     {
+        cout << executor.getName() << "Planted a tree at: " << target.getPath() << endl;
         std::ofstream outfile(target.getPath() + executor.getName() + "'s Shrubbery");
         outfile << executor.getName() << "'s Shrubbery" << endl;
         outfile << TREE << endl;

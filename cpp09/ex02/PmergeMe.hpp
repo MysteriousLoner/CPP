@@ -7,6 +7,7 @@
 #include <vector>
 #include <ctime>
 #include <iomanip>
+#include <cstdlib>
 #include <algorithm>
 
 using std::vector;
@@ -38,7 +39,7 @@ private:
     int extraNum;
 public:
     PmergeMe();
-    PmergeMe(const string argv);
+    PmergeMe(char **argv);
     ~PmergeMe();
 
     void mergeDeque();

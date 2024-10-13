@@ -45,6 +45,7 @@
 //     }
 // }
 
+
 int main()
 {
 	std::string en = "enemy";

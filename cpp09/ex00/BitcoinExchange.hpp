@@ -17,8 +17,8 @@ using std::endl;
 class BitcoinExchange
 {
 private:
-    map<string, double> db;
 public:
+    map<string, double> db;
     BitcoinExchange();
     ~BitcoinExchange();
     void printResult(const string &filename);

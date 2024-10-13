@@ -10,9 +10,9 @@ AForm::AForm(const string& name, int gradeToSign, int gradeToExecute) : name(nam
     cout << "created a" << this->getName() << endl;
 
     if (gradeToSign < 1)
-        throw GradeTooLowException();
-    else if (gradeToSign > 150)
         throw GradeTooHighException();
+    else if (gradeToSign > 150)
+        throw GradeTooLowException();
 }
 
 AForm::AForm(int gradeToSign, int gradeToExecute) : gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
@@ -51,7 +51,7 @@ AForm::~AForm()
 
 void AForm::execute(Bureaucrat const & bureaucrat)
 {
-    cout << bureaucrat.getName() << endl;
+    cout << bureaucrat.getName() << "tries to execute" << endl;
 }
 
 ostream& operator << (ostream& out, AForm& form)

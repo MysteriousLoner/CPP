@@ -35,7 +35,7 @@ static AForm *makePresident(const string & target)
 
 AForm* Intern::makeForm(const string & param, const string & target)
 {
-    AForm* (*func_ptr[]) (const string & target) = {makePresident, makeRobot, makeShrub};
+    AForm* (*func_ptr[]) (const string & target) = {makePresident, makeShrub, makeRobot};
     string myForms[] = {"PresidentialPardonForm", "ShrubberyCreationForm", "RobotomyRequestForm"};
     for (int i = 0; i < 3; i++)
     {

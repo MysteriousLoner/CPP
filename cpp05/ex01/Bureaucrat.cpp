@@ -64,9 +64,9 @@ void Bureaucrat::decrementGrade()
 	{
 		this->grade++;
 		if (this->grade < 1)
-			throw Bureaucrat::Grade2Low;
-		else if (this->grade > 150)
 			throw Bureaucrat::Grade2High;
+		else if (this->grade > 150)
+			throw Bureaucrat::Grade2Low;
 	}
 	catch (GradeTooHighException &e)
 	{

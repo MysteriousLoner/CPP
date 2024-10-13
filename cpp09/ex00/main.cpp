@@ -20,6 +20,9 @@ int main(int argc, char **argv)
 
     BitcoinExchange exchange;
     exchange.printResult(argv[1]);
+    // cout << argv[1] << endl;
+
+    // cout << exchange.db.find("2010-12-17")->second << endl;
 
     // ifstream queryFile(argv[1]);
     // string line;

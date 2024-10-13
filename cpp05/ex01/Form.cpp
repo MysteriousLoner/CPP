@@ -30,7 +30,7 @@ void Form::beSigned(Bureaucrat& bureaucrat)
 {
 
     if (bureaucrat.getGrade() > this->getGradeToSign())
-        throw Form::Grade2High;
+        throw Form::Grade2Low;
     else
         this->isSigned = true;
 }
@@ -40,9 +40,9 @@ Form::Form(const string& name, int gradeToSign, int gradeToExecute) : name(name)
     cout << "form constructor called" << endl;
 
     if (gradeToSign < 1)
-        throw Form::Grade2Low;
-    else if (gradeToSign > 150)
         throw Form::Grade2High;
+    else if (gradeToSign > 150)
+        throw Form::Grade2Low;
 }
 
 Form::~Form()

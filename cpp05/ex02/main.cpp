@@ -2,21 +2,23 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "anotherform.hpp"
 
 int main()
 {
-	PresidentialPardonForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
+	// PresidentialPardonForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	// RobotomyRequestForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
-	// ShrubberyCreationForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
+	ShrubberyCreationForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
+	anotherForm asdcidhciadb;
 	cout << "------------------------------" << endl;
 	{
-		cout << "sign grade test - invalid" << endl;
-		cout << form;
+		cout << "unsigned form" << endl;
 		Bureaucrat bureaucrat("william", form.getGradeToSign() + 1);
-		cout << bureaucrat;
 		bureaucrat.signForm(form);
+		cout << bureaucrat;
+		cout << form;
 		cout << "------------------------------" << endl;
-		cout << "valid execute test - no sign" << endl;
+		cout << "unsigned, cant execute" << endl;
 		{
 			Bureaucrat executor("laian", form.getGradeToExecute() - 1);
 			cout << form;
@@ -24,7 +26,7 @@ int main()
 			form.execute(executor);
 		}
 		cout << "------------------------------" << endl;
-		cout << "invalid execute test - no sign" << endl;
+		cout << "unsigned, can execute" << endl;
 		{
 			Bureaucrat executor("cyuxian", form.getGradeToExecute() + 1);
 			cout << form;
@@ -35,13 +37,13 @@ int main()
 	cout << "------------------------------" << endl;
 	cout << "------------------------------" << endl;
 	{
-		cout << "sign grade test - valid" << endl;
+		cout << "signed form" << endl;
 		cout << form;
 		Bureaucrat bureaucrat("william", form.getGradeToSign() - 1);
 		cout << bureaucrat;
 		bureaucrat.signForm(form);
 		cout << "------------------------------" << endl;
-		cout << "valid execute test - sign" << endl;
+		cout << "signed, can execute" << endl;
 		{
 			Bureaucrat executor("laian", form.getGradeToExecute() - 1);
 			cout << form;
@@ -49,7 +51,7 @@ int main()
 			form.execute(executor);
 		}
 		cout << "------------------------------" << endl;
-		cout << "invalid execute test - sign" << endl;
+		cout << "signed, cannot execute" << endl;
 		{
 			Bureaucrat executor("cyuxian", form.getGradeToExecute() + 1);
 			cout << form;
@@ -59,3 +61,7 @@ int main()
 	}
 	cout << "------------------------------" << endl;
 }
+
+// todo:
+// replace target from pathname to target name (just check if current directory has file with same name)
+// add executeForm() in Bureaucrat.cpp

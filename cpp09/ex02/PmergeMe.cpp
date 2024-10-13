@@ -3,31 +3,32 @@
 PmergeMe::PmergeMe() {
 }
 
-PmergeMe::PmergeMe(const string argv) {
+PmergeMe::PmergeMe(char **argv) {
     int flag = -1;
     for (int i = 0; argv[i]; i++)
     {
-        if (argv[i] == ' ')
-            continue;
-        if (argv[i] <= '0' || argv[i] > '9')
+    //     if (argv[i] == ' ')
+    //         continue;
+    //     if (argv[i] <= '0' || argv[i] > '9')
+    //     {
+    //         std::cerr << "Error: Invalid input" << std::endl;
+    //         exit(1);
+    //     }
+    //     else
+    //     {
+        // cout << "argv[i]: " << argv[i] << endl;
+        if (flag == -1)
         {
-            std::cerr << "Error: Invalid input" << std::endl;
-            exit(1);
+            deq.push_back(atoi(argv[i]));
+            vctr.push_back(atoi(argv[i]));
         }
         else
         {
-            if (flag == -1)
-            {
-                deq.push_back(argv[i] - '0');
-                vctr.push_back(argv[i] - '0');
-            }
-            else
-            {
-                deq.push_front(argv[i] - '0');
-                vctr.insert(vctr.begin(), argv[i] - '0');
-            }
-            flag *= -1;
+            deq.push_front(atoi(argv[i]));
+            vctr.insert(vctr.begin(), atoi(argv[i]));
         }
+        flag *= -1;
+        // }
     }
     deque<int>::iterator it = deq.begin();
     while (it != deq.end())
@@ -145,14 +146,6 @@ void PmergeMe::mergeVector()
 void PmergeMe::mergeDeque() 
 {
     cout << "Sorting with deque" << endl;
-    deque<int>::iterator it = deq.begin();
-    it = deq.begin();
-    while(it != deq.end())
-    {
-        cout << *it << " ";
-        it++;
-    }
-    cout << endl;
     clock_t start_time = clock(); 
     while (!is_sorted(deq))
     {
@@ -190,7 +183,7 @@ void PmergeMe::mergeDeque()
             deqBuffer.push_back(extraNum);
             size++;
         }
-        // deque<int>::iterator it = deqBuffer.begin();
+        deque<int>::iterator it = deqBuffer.begin();
         // while(it != deqBuffer.end())
         // {
         //     cout << *it << " ";
@@ -198,7 +191,7 @@ void PmergeMe::mergeDeque()
         // }
         // cout << endl;
         std::sort(mid_it, deqBuffer.end());
-        // it = deqBuffer.begin();
+        it = deqBuffer.begin();
         // while(it != deqBuffer.end())
         // {
         //     cout << *it << " ";
@@ -223,11 +216,12 @@ void PmergeMe::mergeDeque()
                 flag *= -1;
             }
         }
-        // deqBuffer.clear();
+        deqBuffer.clear();
     }
     cout << "Sorted deque: ";
-    it = deqBuffer.begin();
-    while(it != deqBuffer.end())
+    deque<int>::iterator it = deq.begin();
+    it = deq.begin();
+    while(it != deq.end())
     {
         cout << *it << " ";
         it++;
@@ -239,3 +233,10 @@ void PmergeMe::mergeDeque()
             << std::fixed << std::setprecision(10) << time_taken // Format output
             << " seconds" << std::endl;
 }
+
+0->0->0->0->0->0
+
+O(1)
+O(n^2)
+O(n)
+O(n log n)

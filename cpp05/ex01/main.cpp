@@ -6,68 +6,72 @@ int main()
 	string name;
 	string form_name;
 	int form_grade;
-	const char *tempstr;
+	// const char *tempstr;
 	int grade;
-	while (1)
-	{
-		cout << "Enter a name (bureaucrat): ";
-		getline(cin, input);
-		try
-		{
-			tempstr = input.c_str();
-			name = tempstr;
-		}
-		catch (exception &e)
-		{
-			cout << "input error (grade)" << endl;
-			cout << e.what() << endl;
-			continue;
-		}
-		cout << "Enter a grade (bureaucrat): ";
-		getline(cin, input);
-		try
-		{
-			tempstr = input.c_str();
-			grade = atoi(tempstr);
-		}
-		catch (exception &e)
-		{
-			cout << "input error (grade)" << endl;
-			cout << e.what() << endl;
-			continue;
-		}
-		cout << "Enter a name (form): ";
-		getline(cin, input);
-		try
-		{
-			tempstr = input.c_str();
-			form_name = tempstr;
-		}
-		catch (exception &e)
-		{
-			cout << "input error (grade)" << endl;
-			cout << e.what() << endl;
-			continue;
-		}
-		cout << "Enter a grade (form) : ";
-		getline(cin, input);
-		try
-		{
-			tempstr = input.c_str();
-			form_grade = atoi(tempstr);
-		}
-		catch (exception &e)
-		{
-			cout << "input error (grade)" << endl;
-			cout << e.what() << endl;
-			continue;
-		}
+	// while (1)
+	// {
+	// 	cout << "Enter a name (bureaucrat): ";
+	// 	getline(cin, input);
+	// 	try
+	// 	{
+	// 		tempstr = input.c_str();
+	// 		name = tempstr;
+	// 	}
+	// 	catch (exception &e)
+	// 	{
+	// 		cout << "input error (grade)" << endl;
+	// 		cout << e.what() << endl;
+	// 		continue;
+	// 	}
+	// 	cout << "Enter a grade (bureaucrat): ";
+	// 	getline(cin, input);
+	// 	try
+	// 	{
+	// 		tempstr = input.c_str();
+	// 		grade = atoi(tempstr);
+	// 	}
+	// 	catch (exception &e)
+	// 	{
+	// 		cout << "input error (grade)" << endl;
+	// 		cout << e.what() << endl;
+	// 		continue;
+	// 	}
+	// 	cout << "Enter a name (form): ";
+	// 	getline(cin, input);
+	// 	try
+	// 	{
+	// 		tempstr = input.c_str();
+	// 		form_name = tempstr;
+	// 	}
+	// 	catch (exception &e)
+	// 	{
+	// 		cout << "input error (grade)" << endl;
+	// 		cout << e.what() << endl;
+	// 		continue;
+	// 	}
+	// 	cout << "Enter a grade (form) : ";
+	// 	getline(cin, input);
+	// 	try
+	// 	{
+	// 		tempstr = input.c_str();
+	// 		form_grade = atoi(tempstr);
+	// 	}
+	// 	catch (exception &e)
+	// 	{
+	// 		cout << "input error (grade)" << endl;
+	// 		cout << e.what() << endl;
+	// 		continue;
+	// 	}
 
-		break;
-	}
+	// 	break;
+	// }
 	try
 	{
 	cout << "---------check bureaucrat-----------" << endl;
+	name = "poggers";
+	grade = 55;
+	form_name = "form";
+	form_grade = 54;
 	Bureaucrat bureaucrat(name, grade);
 	cout << bureaucrat;
 	cout << "---------check form-----------------" << endl;
@@ -83,3 +87,7 @@ int main()
 		cout << "\n-----------------------------\n" << "error! "<< e.what() << endl;
 	}
 }
+
+// todo:
+// implement correct signForm function in Bureaucrat.cpp
+// make sure to throw correct error message if form is signed/ signing form is not possible

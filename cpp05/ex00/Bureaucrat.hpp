@@ -6,7 +6,12 @@
 #include <cstdlib>
 #include <cstring>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::exception;
+using std::string;
+using std::cin;
+using std::ostream;
 
 #include <exception>
 
@@ -23,11 +28,10 @@ public:
 };
 
 class Bureaucrat{
-private:
 	const string name;
 	int grade;
-	GradeTooHighException Grade2High;
-	GradeTooLowException Grade2Low;
+	// GradeTooHighException Grade2High;
+	// GradeTooLowException Grade2Low;
 public:
 	Bureaucrat();
 	Bureaucrat(const string& name, int grade);
