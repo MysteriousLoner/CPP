@@ -11,6 +11,7 @@ using std::string;
 class Base {
 public:
     virtual ~Base() = 0;
+    virtual const char* whoAmI() { return "Base"; }
 };
 
 #endif

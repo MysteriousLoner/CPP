@@ -1,13 +1,9 @@
 #include "Serialize.hpp"
 
-uintptr_t Serialize::serialize(Data* ptr)
-{
-    uintptr_t intPtr = reinterpret_cast<uintptr_t>(ptr);
-    return intPtr;
+unsigned long Serialize::serialize(Data* ptr) {
+    return reinterpret_cast<unsigned long>(ptr);
 }
 
-Data* Serialize::deserialize(uintptr_t raw)
-{
-    Data* originalPtr = reinterpret_cast<Data*>(raw);
-    return originalPtr;
+Data* Serialize::deserialize(unsigned long raw) {
+    return reinterpret_cast<Data*>(raw);
 }

@@ -10,10 +10,11 @@ int main()
 	// RobotomyRequestForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	// ShrubberyCreationForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	Intern will("will");
-	AForm *form = will.makeForm("ShrubberyCreationForm", "/Users/leeyang/Documents/CPP/cpp05/ex01/");
-	Bureaucrat laian("laian", 1);
+	AForm *form = will.makeForm("PresidentialPardonForm", "./");
+	Bureaucrat laian("laian", 10);
 	laian.signForm(*form);
 	form->execute(laian);
+	delete form;
 }
 
 // todo:

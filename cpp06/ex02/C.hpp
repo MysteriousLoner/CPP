@@ -9,6 +9,7 @@ public:
     C();
     ~C();
     void whoMe();
+    virtual const char* whoAmI() { return "C"; }
 };
 
 #endif

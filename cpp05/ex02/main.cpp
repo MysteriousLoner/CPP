@@ -8,7 +8,7 @@ int main()
 {
 	// PresidentialPardonForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
 	// RobotomyRequestForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
-	ShrubberyCreationForm form("/Users/leeyang/Documents/CPP/cpp05/ex01/");
+	ShrubberyCreationForm form("../ex01");
 	anotherForm asdcidhciadb;
 	cout << "------------------------------" << endl;
 	{

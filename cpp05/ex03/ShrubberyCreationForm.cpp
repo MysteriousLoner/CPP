@@ -25,7 +25,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
     else
     {
         cout << executor.getName() << "Planted a tree at: " << target.getPath() << endl;
-        std::ofstream outfile(target.getPath() + executor.getName() + "'s Shrubbery");
+        std::ofstream outfile((target.getPath() + executor.getName() + "'s Shrubbery").c_str());
         outfile << executor.getName() << "'s Shrubbery" << endl;
         outfile << TREE << endl;
         outfile << "Planted at " + target.getPath() << endl;
