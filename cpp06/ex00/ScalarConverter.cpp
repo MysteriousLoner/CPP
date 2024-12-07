@@ -48,13 +48,7 @@ Omnivar ScalarConverter::converter(string param)
             omnivar.t_char = static_cast<char>(omnivar.t_float);
             omnivar.t_double = static_cast<double>(omnivar.t_float);
             omnivar.t_int = static_cast<int>(omnivar.t_float);
-            if (omnivar.t_char < 32 || omnivar.t_char > 126)
-                cout << "char: unprintable!" << endl;
-            else
-                cout << "char: " << omnivar.t_char << endl;
-            cout << "int: " << omnivar.t_int << endl;
-            cout << "float: " << omnivar.t_float << endl;
-            cout << "double: " << omnivar.t_double << endl;
+            omnivar.printVars();
             break;
         }
         case DOUBLE:
@@ -63,13 +57,7 @@ Omnivar ScalarConverter::converter(string param)
             omnivar.t_float = static_cast<float>(omnivar.t_double);
             omnivar.t_char = static_cast<char>(omnivar.t_double);
             omnivar.t_int = static_cast<int>(omnivar.t_double);
-            if (omnivar.t_char < 32 || omnivar.t_char > 126)
-                cout << "char: unprintable!" << endl;
-            else
-                cout << "char: " << omnivar.t_char << endl;
-            cout << "int: " << omnivar.t_int << endl;
-            cout << "float: " << omnivar.t_float << endl;
-            cout << "double: " << omnivar.t_double << endl;
+            omnivar.printVars();
             break;
         }
         case CHAR:
@@ -78,13 +66,7 @@ Omnivar ScalarConverter::converter(string param)
             omnivar.t_double = static_cast<double>(omnivar.t_char);
             omnivar.t_float = static_cast<float>(omnivar.t_char);
             omnivar.t_int = static_cast<int>(omnivar.t_char);
-            if (omnivar.t_char < 32 || omnivar.t_char > 126)
-                cout << "char: unprintable!" << endl;
-            else
-                cout << "char: " << omnivar.t_char << endl;
-            cout << "int: " << omnivar.t_int << endl;
-            cout << "float: " << omnivar.t_float << endl;
-            cout << "double: " << omnivar.t_double << endl;
+            omnivar.printVars();
             break;
         }
         case INT:
@@ -93,13 +75,7 @@ Omnivar ScalarConverter::converter(string param)
             omnivar.t_char = static_cast<char>(omnivar.t_int);
             omnivar.t_double = static_cast<double>(omnivar.t_int);
             omnivar.t_float = static_cast<float>(omnivar.t_int);
-            if (omnivar.t_char < 32 || omnivar.t_char > 126)
-                cout << "char: unprintable!" << endl;
-            else
-                cout << "char: " << omnivar.t_char << endl;
-            cout << "int: " << omnivar.t_int << endl;
-            cout << "float: " << omnivar.t_float << endl;
-            cout << "double: " << omnivar.t_double << endl;
+            omnivar.printVars();
             break;           
         }
     }

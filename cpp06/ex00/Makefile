@@ -1,6 +1,6 @@
 NAME = ex00
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp ScalarConverter.cpp Omnivar.cpp
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
