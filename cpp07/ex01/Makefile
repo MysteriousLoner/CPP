@@ -2,7 +2,7 @@ NAME = ex01
 
 SRC = main.cpp
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = #-Wall -Wextra -Werror -std=c++98 -g
 
 all : $(NAME)
 

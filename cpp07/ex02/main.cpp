@@ -16,7 +16,9 @@ int main()
     {
         Array<string> str_arr(10);
         str_arr[0] = "69";
+        str_arr[1] = "420";
         cout << str_arr[0] << endl;
+        cout << str_arr[1] << endl;
     }
     catch(std::exception &e)
     {

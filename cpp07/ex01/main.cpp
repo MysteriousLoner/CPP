@@ -1,18 +1,34 @@
 #include "iter.hpp"
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
-void plusOne(int &x)
+class Awesome
 {
-    x++;
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+  o << rhs.get();
+  return o;
 }
 
-int main()
+template< typename T >
+void print( T& x )
 {
-    int arr[10] = {1, 2, 3, 4, 5, 5, 7, 8, 9, 0};
-    ::iter(arr, 10, plusOne);
-    for (int i = 0; i < 10; i++)
-        cout << arr[i] << endl;
+  std::cout << x << std::endl;
+  return;
+}
+
+int main() {
+  int tab[] = { 0, 1, 2, 3, 4 };
+  Awesome tab2[5];
+
+  iter( tab, 5, print<const int> );
+  iter( tab2, 5, print<Awesome> );
+
+  return 0;
 }

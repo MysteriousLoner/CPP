@@ -5,6 +5,7 @@
 #include <list>
 #include <exception>
 #include <iterator>
+#include <algorithm>
 
 class ContainerFullException : public std::exception
 {
