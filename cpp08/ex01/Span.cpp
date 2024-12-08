@@ -1,82 +1,126 @@
 #include "Span.hpp"
 
-Span::Span(unsigned int n) : size(n) 
+Span::Span(): _size(0), _pos(0) //is private --> unusable and unnecessary
 {
+}
+
+Span::Span(unsigned int N): _size(N), _pos(0)
+{
+	std::cout << "Span Constructor for size of " << N << " called" << std::endl;
+	this->_storage.reserve(this->getSize());
+}
+
+Span::Span(const Span &src): _size(src.getSize()), _pos(src.getPos())
+{
+	std::cout << "Span Copy Constructor called" << std::endl;
+	*this = src;
+}
+
+Span::~Span()
+{
+	std::cout << "Span Deconstructor called" << std::endl;
+}
+
+Span	&Span::operator=(const Span &src)
+{
+	std::cout << "Span Assignation operator called" << std::endl;
+	if (this == &src)
+		return *this;
+
+	return *this;
+}
+
+void	Span::addNumber(int number)
+{
+	if ((this->_pos != 0 && this->_storage.empty() == true) || this->_storage.max_size() < this->getSize())
+		throw (Span::VectorInvalidException());
+	if (this->getPos() + 1 > this->getSize())
+		throw (Span::ArrayFullException());
+	else
+	{
+		this->_pos++;
+		this->_storage.push_back(number);
+	}
+}
+
+void	Span::addNumber(unsigned int range, time_t seed)
+{
+	srand(seed);
+	for (size_t i = 0; i < range; i++)
+	{
+		try
+		{
+			addNumber(rand());
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
 
 }
 
-Span::Span(const Span &span) : size(span.size), list(span.list) 
+unsigned int	Span::shortestSpan(void) const
 {
+	if (this->_pos == 1 || this->_storage.size() == 1)
+		throw (Span::ComparisonInvalidException());
 
+	std::vector<int> v(this->_storage);			// 10 20 30 30 20 10 10 20
+
+	std::sort (v.begin(), v.end());				// 10 10 10 20 20 20 30 30
+
+	unsigned int ret = UINT_MAX;
+	std::vector<int>::iterator temp_it = v.begin();
+	std::vector<int>::iterator temp_it_next = v.begin() + 1;
+	while (temp_it_next != v.end())
+	{
+		if ((unsigned int)(*temp_it_next - *temp_it) < ret)
+			ret = *temp_it_next - *temp_it;
+		++temp_it_next;
+		++temp_it;
+	}
+	return (ret);
 }
 
-Span& Span::operator=(const Span &span)
+unsigned int	Span::longestSpan(void)const
 {
-    if (this != &span)
-    {
-        size = span.size;
-        list = span.list;
-    }
-    return *this;
+	if (this->_pos == 1 || this->_storage.size() == 1)
+		throw (Span::ComparisonInvalidException());
+
+	std::vector<int> v(this->_storage);			// 10 20 30 30 20 10 10 20
+	int low, high;
+
+	std::sort (v.rbegin(), v.rend());			// 30 30 20 20 20 10 10 10
+	high = *v.begin();
+
+	std::sort (v.begin(), v.end());				// 10 10 10 20 20 20 30 30
+	low = *v.begin();
+
+	return (high - low);
 }
 
-Span::~Span() 
+unsigned int	Span::getSize() const
 {
-
+	return (this->_size);
 }
 
-void Span::addNumber(int n)
+unsigned int	Span::getPos() const
 {
-    if (static_cast<unsigned int>(list.size()) >= this->size)
-    {
-        throw ContainerFullException();
-    }
-    list.push_back(n);
+	return (this->_pos);
 }
 
-int Span::shortestSpan()
+
+const char	*Span::VectorInvalidException::what() const throw()
 {
-    if (static_cast<unsigned int>(list.size()) < 2)
-    {
-        throw ContainerFullException();
-    }
-    list.sort();
-    int min = *list.begin();
-    list.pop_front();
-    std::list<int>::iterator it = list.begin();
-    for(it = list.begin(); it != list.end(); it++)
-    {
-        if ((*it - min) > 0)
-            return (*it - min);  
-    }
-    throw NoSpanException();
+	return ("Error: Invalid or broken vector");
 }
 
-int Span::longestSpan()
+const char	*Span::ArrayFullException::what() const throw()
 {
-    if (static_cast<int>(list.size()) < 2)
-    {
-        throw ContainerFullException();
-    }
-    return (*std::max_element(list.begin(), list.end()) - *std::min_element(list.begin(), list.end()));
+	return ("Error: Array full");
 }
 
-const char* ContainerFullException::what() const throw()
+const char	*Span::ComparisonInvalidException::what() const throw()
 {
-    return "Container is full";
-}
-
-const char* NoSpanException::what() const throw()
-{
-    return "No span to find";
-}
-
-void Span::printList()
-{
-    std::cout << "List: ";
-    for (std::list<int>::iterator it = list.begin(); it != list.end(); it++)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
+	return ("Error: more than one element in vector needed to be compared");
 }
